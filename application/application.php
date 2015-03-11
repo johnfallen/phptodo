@@ -37,7 +37,7 @@ function onRequest(){
 	// initialize the ViewSate for every request
 	setViewState( new ViewState( getApplicationSystemPath() ) );
 
-	// decide what to do
+	// decide what to do, the front controller
 	handleAction();
 
 	// render the application
@@ -45,50 +45,15 @@ function onRequest(){
 }
 
 /**
- * I return a string to use as a link with it's action
- */
-function buildLink( $action ){
-
-	return getBaseURI() . '/index.php?action=' . $action;
-}
-
-/**
- * I return a string of the base URR of the application
- */
-function getBaseURI(){
-	
-	return "http://" . $_SERVER[ 'HTTP_HOST' ] . dirname( $_SERVER[ 'PHP_SELF' ] );
-}
-
-/**
- * I return the applications base system path
- */
-function getApplicationSystemPath(){
-	return $_SESSION[ SESSION_NAME_SPACE ][ 'systemPath' ];
-}
-
-/**
- * I check the state of the application. If needed I will reload it.
- */
-function checkApplicationState(){
-	// if the session var isn't there OR if we're reloading from a URL var
-	if ( !isset ( $_SESSION[ SESSION_NAME_SPACE ] )
-		or 
-		isset( $_GET[ RELOAD_KEY ] ) && trim( $_GET[ RELOAD_KEY ] ) == RELOAD_KEY_VALUE ) {
-
-		startApplication();	
-	}
-}
-
-/**
  * I decide what methods to call on the controller and do so. I also
  * set what view should be rendered.
  */
 function handleAction(){
-
+	
 	$controller = getController();
 	$viewState = getViewState();	
 
+	// ************************ THE FRONT CONTROLLER *********************** //
 	if ( isset ($_GET[ ACTION_KEY ]) ){
 
 		switch ($_GET[ ACTION_KEY ]) {
@@ -149,6 +114,42 @@ function handleAction(){
 
 		$viewState->setView('list.php');
 		$viewState->setData( $controller->listToDo() );	
+	}
+}
+
+/**
+ * I return a string to use as a link with it's action
+ */
+function buildLink( $action ){
+
+	return getBaseURI() . '/index.php?action=' . $action;
+}
+
+/**
+ * I return a string of the base URI of the application
+ */
+function getBaseURI(){
+	
+	return "http://" . $_SERVER[ 'HTTP_HOST' ] . dirname( $_SERVER[ 'PHP_SELF' ] );
+}
+
+/**
+ * I return the applications base system path
+ */
+function getApplicationSystemPath(){
+	return $_SESSION[ SESSION_NAME_SPACE ][ 'systemPath' ];
+}
+
+/**
+ * I check the state of the application. If needed I will reload it.
+ */
+function checkApplicationState(){
+	// if the session var isn't there OR if we're reloading from a URL var
+	if ( !isset ( $_SESSION[ SESSION_NAME_SPACE ] )
+		or 
+		isset( $_GET[ RELOAD_KEY ] ) && trim( $_GET[ RELOAD_KEY ] ) == RELOAD_KEY_VALUE ) {
+
+		startApplication();	
 	}
 }
 
