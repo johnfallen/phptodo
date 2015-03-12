@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  *
  * I am a simple factory for this application.

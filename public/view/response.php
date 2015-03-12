@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
  * I render responses from the application. Types set in the front controller
  * in the application.php file corispond to BootStrap alert class types.

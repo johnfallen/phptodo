@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * I display a list of all the ToDos.
  *

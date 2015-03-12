@@ -1,6 +1,9 @@
 <?php
 /**
  * I contain misc helper functions.
+ *
+ * @author John Allen
+ * @version 1.0
  */
 
 /**

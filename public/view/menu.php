@@ -1,4 +1,4 @@
-<?php 
+<?php
 /** 
  * I am the menu view.
  *

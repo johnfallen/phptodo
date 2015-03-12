@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * I am the main application code. I define all configuration, build all the
  * applications objects, store them in the session scope for persistance,

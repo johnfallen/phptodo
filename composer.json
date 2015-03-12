@@ -1,5 +1,7 @@
 {
     "require-dev": {
+    },
+    "require": {
         "phpdocumentor/phpdocumentor": "2.*"
     }
 }
