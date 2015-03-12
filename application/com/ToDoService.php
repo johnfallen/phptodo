@@ -13,7 +13,7 @@ class ToDoService {
 
 	// object properties 
 	// the colleciton of all the ToDos
-	var $collection = array();
+	private $collection = array();
 
 	// ****************************** PUBLIC ******************************* //
 	/**

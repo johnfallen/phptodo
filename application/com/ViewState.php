@@ -9,10 +9,10 @@
 class ViewState {
 
 	// object properties
-	var $data;
-	var $view;
-	var $applicationSystemPath;
-	var $response = array();
+	public $data;
+	public $view;
+	public $applicationSystemPath;
+	public $response = array();
 
 	// ****************************** PUBLIC ******************************* //
 	/**
@@ -44,7 +44,6 @@ class ViewState {
 		
 		$this->data = $data;
 	}
-
 
 	/**
 	 * I return a response to display to a user.

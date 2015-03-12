@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * I model a ToDo object.
  *
@@ -9,9 +9,9 @@
 class ToDo {
 
 	// object properties
-	var $id;
-	var $task;
-	var $complete;
+	public $id;
+	public $task;
+	public $complete;
 
 	// ****************************** PUBLIC ******************************* //
 	/**

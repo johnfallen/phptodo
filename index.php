@@ -1,4 +1,4 @@
-<?php 
+<?php
 /** 
  * I am the index of the application. All requests should go to me.
  *

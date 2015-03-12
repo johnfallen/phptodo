@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * I am the applications controller.
  *
@@ -9,7 +9,7 @@
 class Controller {
 	
 	// object properties
-	var $ToDoService;
+	private $ToDoService;
 
 	// ****************************** PUBLIC ******************************* //
 	/**

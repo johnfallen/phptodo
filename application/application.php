@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * I am the main application code. I define all configuration, build all the
  * applications objects, store them in the session scope for persistance,
@@ -133,7 +133,7 @@ function handleAction(){
  */
 function buildLink( $action ){
 
-	return getBaseURI() . '/index.php?action=' . $action;
+	return getBaseURI() . 'index.php?action=' . $action;
 }
 
 /**
@@ -176,7 +176,7 @@ function checkApplicationState(){
  * @return object
  */
 function getViewState(){
-	return $_SESSION[ SESSION_NAME_SPACE ][ 'viewSate' ];	
+	return $_POST[ SESSION_NAME_SPACE ][ 'viewSate' ];	
 }
 
 /**
@@ -186,7 +186,10 @@ function getViewState(){
  * @return void
  */
 function setViewState( $ViewState ){
-	$_SESSION[ SESSION_NAME_SPACE ][ 'viewSate' ] = $ViewState;
+	
+	if ( ! isset ( $_POST[ SESSION_NAME_SPACE ][ 'viewSate' ] ) ){
+		$_POST[ SESSION_NAME_SPACE ][ 'viewSate' ] = $ViewState;	
+	}
 }
 
 /**
@@ -219,7 +222,10 @@ function startApplication(){
 	$_SESSION[ SESSION_NAME_SPACE ][ 'systemPath' ] = getcwd();
 	$_SESSION[ SESSION_NAME_SPACE ][ 'factory' ] = new Factory();
 
-	print_r( 'Application Started at: ' . date( 'l jS \of F Y h:i:s A' ) );
+	// lets output a message that the application has been reloaded.
+	$initViewState = getFactory()->getBean( 'ViewState' );
+	$initViewState->setResponse('Application Started at: ' . date( 'l jS \of F Y h:i:s A' ), 'warning');
+	setViewState( $initViewState );
 };
 
 /**

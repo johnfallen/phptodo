@@ -14,7 +14,7 @@ include 'ViewState.php';
 class Factory {
 
 	// the cache for singletons
-	var $singletonCache = array();
+	private $singletonCache = array();
 
 	// ****************************** PUBLIC ******************************* //
 	/**
@@ -28,10 +28,10 @@ class Factory {
 	}
 
 	/**
-	 * I return a ready to use Object based on name. THROWS ERROR when a bean
-	 * is not found.
+	 * I return a ready to use Object based on name. 
 	 *
 	 * @param string $name  I am the name of the bean to get. I am required.
+	 * @throws string I throw an error when a bean is not found.
 	 * @return object
 	 */
 	public function getBean( $name ){
