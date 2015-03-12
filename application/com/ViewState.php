@@ -37,7 +37,7 @@ class ViewState {
 	/**
 	 * I set the data nessary for the view to display.
 	 *
-	 * @param any $data  I am the data to store.
+	 * @param any $data  I am the data to store. I am required.
 	 * @return void
 	 */
 	public function setData( $data ){
@@ -82,7 +82,7 @@ class ViewState {
 	/**
 	 * I set what view/php file to display.
 	 *
-	 * @param string $view  I am the name of the php file to render.
+	 * @param string $view  I am the name of the php file to render. I am required.
 	 * @return void
 	 */
 	public function setView( $view ){

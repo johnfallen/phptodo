@@ -24,7 +24,7 @@ class ToDoService {
 	/**
 	 * I remove a ToDo from the collection.
 	 *
-	 * @param string $id  I am the ID of the ToDo to delete
+	 * @param string $id  I am the ID of the ToDo to delete. I am required.
 	 * @return void
 	 */
 	public function deleteToDo( $id ){
@@ -67,7 +67,7 @@ class ToDoService {
 	/**
 	 * I return a ToDo by ID. If the ID is not found I return a new ToDo object. 
 	 *
-	 * @param string $id  I am the ID of the ToDo to return
+	 * @param string $id  I am the ID of the ToDo to return. I am required.
 	 * @return object
 	 */
 	public function getToDo( $id ){
@@ -92,7 +92,7 @@ class ToDoService {
 	}
 
 	/**
-	 * I return the collection of all ToDos
+	 * I return the collection of all ToDos.
 	 *
 	 * @return array
 	 */
@@ -104,9 +104,9 @@ class ToDoService {
 	/**
 	 * I save a ToDo object and return it.
 	 *
-	 * @param string $id  I am the ID of the ToDo to save
-	 * @param string $task  I am the task of the ToDo - the descriptive text
-	 * @param boolean $complete  I a flag to indicate if the ToDo is completed
+	 * @param string $id  I am the ID of the ToDo to save. I am required.
+	 * @param string $task  I am the task of the ToDo - the descriptive text. I am required.
+	 * @param boolean $complete  I a flag to indicate if the ToDo is completed. I am required.
 	 * @return object
 	 */
 	public function saveToDo( $id, $task, $complete ) {

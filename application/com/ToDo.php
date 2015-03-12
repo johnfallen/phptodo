@@ -16,12 +16,14 @@ class ToDo {
 	// ****************************** PUBLIC ******************************* //
 	/**
 	 * I am the constructor.
+	 * @param string $task  I am the human readable description of the ToDo. I default to 'What to do'.
+	 * @param boolean $id  I am a flag to indicate if I am completed.  I default to false.
 	 */
 	function ToDo( $task = "What to do", $complete = false ) {
 		
 		$this->id = $this->gen_uuid();
-		$this->task = $task;
-		$this->complete = $complete;
+		$this->setTask($task);
+		$this->setComplete($complete);
 	}
 
 	/**
@@ -45,9 +47,9 @@ class ToDo {
 	}
 
 	/**
-	 * I set the complete status of the ToDo.
+	 * I set the complete status of the ToDo. I am required.
 	 *
-	 * @param boolean $complete  I am a flag to indicate if I am completed
+	 * @param boolean $complete  I am a flag to indicate if I am completed. I am required.
 	 * @return void
 	 */
 	public function setComplete( $complete ) {
@@ -68,7 +70,7 @@ class ToDo {
 	/**
 	 * I set teh task of the ToDo.
 	 *
-	 * @param string $task  I am the human readable description of the ToDo
+	 * @param string $task  I am the human readable description of the ToDo. I am required.
 	 * @return void
 	 */
 	public function setTask( $task ){

@@ -128,7 +128,7 @@ function handleAction(){
 /**
  * I return a string to use as a link with it's action
  *
- * @param string $action  I am the action to be taken.
+ * @param string $action  I am the action to be taken. I am required.
  * @return string
  */
 function buildLink( $action ){
@@ -137,7 +137,7 @@ function buildLink( $action ){
 }
 
 /**
- * I return a string of the base URI of the application
+ * I return a string of the base URI of the application.
  *
  * @return string
  */
@@ -147,7 +147,7 @@ function getBaseURI(){
 }
 
 /**
- * I return the applications base system path
+ * I return the applications base system path.
  *
  * @return string
  */

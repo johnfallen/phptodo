@@ -14,6 +14,8 @@ class Controller {
 	// ****************************** PUBLIC ******************************* //
 	/**
 	 * I am the constructor.
+	 *
+	 * @param object $ToDoService  I am the ToDoService. I am required.
 	 */
 	public function Controller( $ToDoService ){
 		
@@ -23,7 +25,7 @@ class Controller {
 	/**
 	 * I delete a ToDo by ID.
 	 *
-	 * @param string $id  I am the id of the ToDo to delete.
+	 * @param string $id  I am the id of the ToDo to delete.  I am required.
 	 * @return void
 	 */
 	public function deleteToDo( $id ){
@@ -44,7 +46,7 @@ class Controller {
 	/**
 	 * I return a ToDo by ID.
 	 *
-	 * @param string $id  I am the ID of the ToDo to get.
+	 * @param string $id  I am the ID of the ToDo to get.  I am required.
 	 * @return object
 	 */
 	public function getToDo( $id ){
@@ -65,9 +67,9 @@ class Controller {
 	/**
 	 * I save a ToDo and return the saved ToDo.
 	 *
-	 * @param string $id  I am the ID of the ToDo to save
-	 * @param string $task  I am the task of the ToDo - the descriptive text
-	 * @param boolean $complete  I a flag to indicate if the ToDo is completed
+	 * @param string $id  I am the ID of the ToDo to save.  I am required.
+	 * @param string $task  I am the task of the ToDo - the descriptive text.  I am required.
+	 * @param boolean $complete  I a flag to indicate if the ToDo is completed.  I am required.
 	 * @return object
 	 */
 	public function saveToDo($data){

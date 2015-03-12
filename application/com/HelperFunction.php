@@ -6,7 +6,7 @@
 /**
  * I dump out data in a readable format
  *
- * @param any $value  I am the data to dump to the screen
+ * @param any $value  I am the data to dump to the screen. I am required.
  * @return void
  */
 function dump( $value ){
