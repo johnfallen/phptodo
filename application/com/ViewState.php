@@ -1,6 +1,10 @@
 <?php
 /**
  * I am a simple object that contains required data needed by the views.
+ *
+ * @package com
+ * @author John Allen
+ * @version 1.0
  */
 class ViewState {
 
@@ -15,53 +19,74 @@ class ViewState {
 	 * I am the constructor.
 	 */
 	function ViewState( $applicationSystemPath ){
+		
 		$this->applicationSystemPath = $applicationSystemPath;
 	}
 
 	/**
 	 * I return the data provided by the controller nessary for the view to 
 	 * display.
+	 *
+	 * @return any
 	 */
 	public function getData(){
+		
 		return $this->data;
 	}
 
 	/**
 	 * I set the data nessary for the view to display.
+	 *
+	 * @param any $data  I am the data to store.
+	 * @return void
 	 */
 	public function setData( $data ){
+		
 		$this->data = $data;
 	}
 
 
 	/**
 	 * I return a response to display to a user.
+	 *
+	 * @return array
 	 */
 	public function getResponse(){
+		
 		return $this->response;
 	}
 
 	/**
-	 * I set a responce to display to the user.
+	 * I set a response to display to the user.
+	 *
+	 * @param string $message  I am the message to display. I default to an empty string.
+	 * @param string $type  I am the type of alert to show. I default to 'success'.
+	 * @return void
 	 */
-	public function setResponse( $message = 'Oops! No message given!', $type = 'success' ){
+	public function setResponse( $message = '', $type = 'success' ){
+		
 		$this->response['message'] = $message;
 		$this->response['type'] = $type;
 	}
 
-
-
 	/**
-	 * I set what view to display.
+	 * I return a string of the php file that gets rendered.
+	 *
+	 * @return string
 	 */
 	public function getView(){
+		
 		return $this->applicationSystemPath . '/public/view/' . $this->view;
 	}
 
 	/**
-	 * I return what view to display.
+	 * I set what view/php file to display.
+	 *
+	 * @param string $view  I am the name of the php file to render.
+	 * @return void
 	 */
 	public function setView( $view ){
+		
 		$this->view = $view;	
 	}
 

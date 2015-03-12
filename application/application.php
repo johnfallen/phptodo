@@ -4,13 +4,14 @@
  * applications objects, store them in the session scope for persistance,
  * handle the front controller logic, and reload the application as nessary.
  * I am also the applications API.
+ *
+ * @author John Allen
+ * @version 1.0
  */
 
 // inlucdes
 include 'com/HelperFunction.php';
-include 'com/ToDoService.php';
-include 'com/Controller.php';
-include 'com/ViewState.php';
+include 'com/Factory.php';
 
 // Global variables / settings
 define( 'APP_TITLE', 'My ToDo' );
@@ -27,7 +28,12 @@ session_start();
 onRequest();
 
 /**
- * I am fired on every request.
+ * I am a method that should be fired on every request. I check if the
+ * application needs to be set up, I initalize the requests ViewState object,
+ * I call the handleAction() method (the front controller), and render the
+ * views
+ *
+ * @return void
  */
 function onRequest(){
 
@@ -35,7 +41,7 @@ function onRequest(){
 	checkApplicationState();
 
 	// initialize the ViewSate for every request
-	setViewState( new ViewState( getApplicationSystemPath() ) );
+	setViewState( getFactory()->getBean( 'ViewState' ) );
 
 	// decide what to do, the front controller
 	handleAction();
@@ -47,6 +53,8 @@ function onRequest(){
 /**
  * I decide what methods to call on the controller and do so. I also
  * set what view should be rendered.
+ *
+ * @return void
  */
 function handleAction(){
 	
@@ -119,6 +127,9 @@ function handleAction(){
 
 /**
  * I return a string to use as a link with it's action
+ *
+ * @param string $action  I am the action to be taken.
+ * @return string
  */
 function buildLink( $action ){
 
@@ -127,6 +138,8 @@ function buildLink( $action ){
 
 /**
  * I return a string of the base URI of the application
+ *
+ * @return string
  */
 function getBaseURI(){
 	
@@ -135,6 +148,8 @@ function getBaseURI(){
 
 /**
  * I return the applications base system path
+ *
+ * @return string
  */
 function getApplicationSystemPath(){
 	return $_SESSION[ SESSION_NAME_SPACE ][ 'systemPath' ];
@@ -142,6 +157,8 @@ function getApplicationSystemPath(){
 
 /**
  * I check the state of the application. If needed I will reload it.
+ *
+ * @return void
  */
 function checkApplicationState(){
 	// if the session var isn't there OR if we're reloading from a URL var
@@ -155,13 +172,18 @@ function checkApplicationState(){
 
 /**
  * I return the curent requests ViewState object.
+ *
+ * @return object
  */
-function getViewState($value=''){
+function getViewState(){
 	return $_SESSION[ SESSION_NAME_SPACE ][ 'viewSate' ];	
 }
 
 /**
  * I set the current requests ViewState object.
+ *
+ * @param object $ViewState  I am the requests ViewState object. I am required.
+ * @return void
  */
 function setViewState( $ViewState ){
 	$_SESSION[ SESSION_NAME_SPACE ][ 'viewSate' ] = $ViewState;
@@ -169,30 +191,41 @@ function setViewState( $ViewState ){
 
 /**
  * I return the applications Controller object.
+ *
+ * @return object
  */
 function getController(){
-	return $_SESSION[ SESSION_NAME_SPACE ]['controller'];
+	return getFactory()->getBean( 'Controller' );
+}
+
+/**
+ * I return the applications Factory object.
+ *
+ * @return object
+ */
+function getFactory(){
+	return $_SESSION[ SESSION_NAME_SPACE ][ 'factory' ];
 }
 
 /**
  * I start the application.
+ *
+ * @return void
  */
 function startApplication(){
 
-	$ToDoService = new ToDoService;
-
-	// name space all the stuff for this application
+	// name space all the stuff for the application
 	$_SESSION[ SESSION_NAME_SPACE ] = array();
-	$_SESSION[ SESSION_NAME_SPACE ]['systemPath'] = getcwd();
-
-	// inject (IOC) the ToDoService into the controller
-	$_SESSION[ SESSION_NAME_SPACE ]['controller'] = new Controller( $ToDoService );
+	$_SESSION[ SESSION_NAME_SPACE ][ 'systemPath' ] = getcwd();
+	$_SESSION[ SESSION_NAME_SPACE ][ 'factory' ] = new Factory();
 
 	print_r( 'Application Started at: ' . date( 'l jS \of F Y h:i:s A' ) );
 };
 
 /**
  * I render the main layout/application.
+ *
+ * @return void
  */
 function renderApplication(){
 	include getApplicationSystemPath() . "/public/layout/layout.php";	
@@ -200,6 +233,8 @@ function renderApplication(){
 
 /**
  * I render a view.
+ *
+ * @return void
  */
 function view( $view ){
 	include getApplicationSystemPath() . "/public/view/" . $view;	

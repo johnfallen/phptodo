@@ -1,6 +1,10 @@
 <?php
 /**
  * I am the applications controller.
+ *
+ * @package com
+ * @author John Allen
+ * @version 1.0
  */
 class Controller {
 	
@@ -18,6 +22,9 @@ class Controller {
 
 	/**
 	 * I delete a ToDo by ID.
+	 *
+	 * @param string $id  I am the id of the ToDo to delete.
+	 * @return void
 	 */
 	public function deleteToDo( $id ){
 		
@@ -26,6 +33,8 @@ class Controller {
 
 	/**
 	 * I delete all of the completed ToDos.
+	 *
+	 * @return void
 	 */
 	public function deleteCompleted(){
 		
@@ -33,7 +42,10 @@ class Controller {
 	}
 
 	/**
-	 * I get and return a ToDo by ID.
+	 * I return a ToDo by ID.
+	 *
+	 * @param string $id  I am the ID of the ToDo to get.
+	 * @return object
 	 */
 	public function getToDo( $id ){
 		
@@ -42,6 +54,8 @@ class Controller {
 
 	/**
 	 * I get all of the ToDos.
+	 *
+	 * @return array
 	 */
 	public function listToDo(){
 		
@@ -49,7 +63,12 @@ class Controller {
 	}
 
 	/**
-	 * I save a ToDo.
+	 * I save a ToDo and return the saved ToDo.
+	 *
+	 * @param string $id  I am the ID of the ToDo to save
+	 * @param string $task  I am the task of the ToDo - the descriptive text
+	 * @param boolean $complete  I a flag to indicate if the ToDo is completed
+	 * @return object
 	 */
 	public function saveToDo($data){
 

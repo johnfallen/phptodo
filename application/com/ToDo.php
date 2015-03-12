@@ -1,8 +1,11 @@
 <?php
 /**
  * I model a ToDo object.
+ *
+ * @package com
+ * @author John Allen
+ * @version 1.0
  */
-
 class ToDo {
 
 	// object properties
@@ -23,44 +26,63 @@ class ToDo {
 
 	/**
 	 * I return my ID.
+	 *
+	 * @return string
 	 */
 	public function getID() {
+		
 		return $this->id;
 	}	
 
 	/**
 	 * I return if I am a completed ToDo task.
+	 *
+	 * @return boolean
 	 */
 	public function getComplete() {
+		
 		return $this->complete;
 	}
 
 	/**
 	 * I set the complete status of the ToDo.
+	 *
+	 * @param boolean $complete  I am a flag to indicate if I am completed
+	 * @return void
 	 */
 	public function setComplete( $complete ) {
+		
 		$this->complete = $complete;
 	}
 
 	/**
 	 * I return the task of the ToDo.
+	 *
+	 * @return string
 	 */
 	public function getTask() {
+		
 		return $this->task;
 	}
 
 	/**
 	 * I set teh task of the ToDo.
+	 *
+	 * @param string $task  I am the human readable description of the ToDo
+	 * @return void
 	 */
 	public function setTask( $task ){
+		
 		$this->task = $task;
 	}
 
 	// ****************************** PRIVATE ****************************** //
 
 	/**
-	 * I return an ID
+	 * I generate and return an ID. The code is from here:
 	 * http://stackoverflow.com/questions/2040240/php-function-to-generate-v4-uuid
+	 *
+	 * @return string
 	 */
 	private function gen_uuid() {
 	    return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',

@@ -2,8 +2,11 @@
 /**
  * I am the ToDoService object. I provide access and CRUD functionality for 
  * ToDo objects.
+ *
+ * @package com
+ * @author John Allen
+ * @version 1.0
  */
-
 include 'ToDo.php';
 
 class ToDoService {
@@ -20,6 +23,9 @@ class ToDoService {
 
 	/**
 	 * I remove a ToDo from the collection.
+	 *
+	 * @param string $id  I am the ID of the ToDo to delete
+	 * @return void
 	 */
 	public function deleteToDo( $id ){
 
@@ -40,6 +46,8 @@ class ToDoService {
 
 	/**
 	 * I remove all the ToDo that are completed.
+	 *
+	 * @return void
 	 */
 	public function deleteCompleted(){
 
@@ -58,6 +66,9 @@ class ToDoService {
 
 	/**
 	 * I return a ToDo by ID. If the ID is not found I return a new ToDo object. 
+	 *
+	 * @param string $id  I am the ID of the ToDo to return
+	 * @return object
 	 */
 	public function getToDo( $id ){
 
@@ -82,6 +93,8 @@ class ToDoService {
 
 	/**
 	 * I return the collection of all ToDos
+	 *
+	 * @return array
 	 */
 	public function listToDo() {
 		return $this->collection;
@@ -89,7 +102,12 @@ class ToDoService {
 
 
 	/**
-	 * I return the collection of all ToDos
+	 * I save a ToDo object and return it.
+	 *
+	 * @param string $id  I am the ID of the ToDo to save
+	 * @param string $task  I am the task of the ToDo - the descriptive text
+	 * @param boolean $complete  I a flag to indicate if the ToDo is completed
+	 * @return object
 	 */
 	public function saveToDo( $id, $task, $complete ) {
 

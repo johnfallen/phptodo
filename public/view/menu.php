@@ -1,5 +1,10 @@
 <?php 
-// I am the navigation view
+/** 
+ * I am the menu view.
+ *
+ * @author John Allen
+ * @version 1.0
+ */
 ?>
 <nav class="navbar navbar-default">
    <!-- Collect the nav links, forms, and other content for toggling -->
