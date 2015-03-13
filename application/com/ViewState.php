@@ -18,7 +18,7 @@ class ViewState {
 	/**
 	 * I am the constructor.
 	 */
-	function ViewState( $applicationSystemPath ){
+	function __construct( $applicationSystemPath ){
 		
 		$this->applicationSystemPath = $applicationSystemPath;
 	}

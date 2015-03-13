@@ -17,7 +17,7 @@ class Controller {
 	 *
 	 * @param object $ToDoService  I am the ToDoService. I am required.
 	 */
-	public function Controller( $ToDoService ){
+	public function __construct( $ToDoService ){
 		
 		$this->ToDoService = $ToDoService;
 	}

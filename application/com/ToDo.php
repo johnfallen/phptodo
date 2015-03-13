@@ -19,7 +19,7 @@ class ToDo {
 	 * @param string $task  I am the human readable description of the ToDo. I default to 'What to do'.
 	 * @param boolean $id  I am a flag to indicate if I am completed.  I default to false.
 	 */
-	function ToDo( $task = "What to do", $complete = false ) {
+	function __construct( $task = "What to do", $complete = false ) {
 		
 		$this->id = $this->gen_uuid();
 		$this->setTask($task);

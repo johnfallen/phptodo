@@ -20,7 +20,7 @@ class Factory {
 	/**
 	 * I am the constructor.
 	 */
-	public function Factory (){
+	public function __construct (){
 		
 		// create all the singletons
 		$this->singletonCache['ToDoService'] = new ToDoService();

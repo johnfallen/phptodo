@@ -19,7 +19,7 @@ class ToDoService {
 	/**
 	 * I am the constructor.
 	 */
-	function ToDoService(){}
+	function __construct(){}
 
 	/**
 	 * I remove a ToDo from the collection.
