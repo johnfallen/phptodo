@@ -1,4 +1,5 @@
 <?php
+namespace org\jfa\todo\simple;
 /**
  * I am a simple object that contains required data needed by the views.
  *

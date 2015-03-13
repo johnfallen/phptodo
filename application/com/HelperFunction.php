@@ -1,4 +1,6 @@
 <?php
+namespace org\jfa\todo\simple;
+
 /**
  * I contain misc helper functions.
  *

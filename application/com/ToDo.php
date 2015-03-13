@@ -1,4 +1,5 @@
 <?php
+namespace org\jfa\todo\simple;
 /**
  * I model a ToDo object.
  *

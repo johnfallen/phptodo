@@ -1,4 +1,5 @@
 <?php
+namespace org\jfa\todo\simple;
 /**
  * I display a list of all the ToDos.
  *

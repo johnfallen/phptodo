@@ -1,4 +1,5 @@
-<?php 
+<?php
+namespace org\jfa\todo\simple;
 /**
  * I am the applications layout file. All the veiws are rendered inside of me.
  */

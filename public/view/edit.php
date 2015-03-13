@@ -1,4 +1,5 @@
-<?php 
+<?php
+namespace org\jfa\todo\simple;
 /**
  * I display the edit form for a ToDo.
  *
