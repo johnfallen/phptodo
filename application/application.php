@@ -11,8 +11,8 @@ namespace org\jfa\todo\simple;
  */
 
 // inlucdes
-include 'com/HelperFunction.php';
-include 'com/Factory.php';
+include 'org/jfa/todo/HelperFunction.php';
+include 'org/jfa/todo/Factory.php';
 
 // Global variables / settings
 define( 'APP_TITLE', 'My ToDo' );
