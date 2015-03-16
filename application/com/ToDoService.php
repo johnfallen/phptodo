@@ -12,8 +12,11 @@ include 'ToDo.php';
 
 class ToDoService {
 
-	// object properties 
-	// the colleciton of all the ToDos
+	// **************************** PROPERTIES ***************************** //
+	/**
+	 * @var array collection I am the colleciton of all the ToDos.
+	 * @access private
+	 */
 	private $collection = array();
 
 	// ****************************** PUBLIC ******************************* //

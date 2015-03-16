@@ -14,7 +14,11 @@ include 'ViewState.php';
 
 class Factory {
 
-	// the cache for singletons
+	// **************************** PROPERTIES ***************************** //
+	/**
+	 * @var array singletonCache I am the the cache for singletons.
+	 * @access private
+	 */
 	private $singletonCache = array();
 
 	// ****************************** PUBLIC ******************************* //

@@ -9,7 +9,13 @@ namespace org\jfa\todo\simple;
  */
 class Controller {
 	
-	// object properties
+	
+	// **************************** PROPERTIES ***************************** //
+	/**
+	 * @var array ToDoService I am the ToDoService object to be injected when I
+	 * am created.
+	 * @access public
+	 */
 	private $ToDoService;
 
 	// ****************************** PUBLIC ******************************* //

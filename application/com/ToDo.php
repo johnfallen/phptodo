@@ -9,9 +9,23 @@ namespace org\jfa\todo\simple;
  */
 class ToDo {
 
-	// object properties
+	// **************************** PROPERTIES ***************************** //
+	/**
+	 * @var string id I am the ID of the ToDo object.
+	 * @access public
+	 */
 	public $id;
+
+	/**
+	 * @var string task I am the human readable description of the ToDo.
+	 * @access public
+	 */
 	public $task;
+
+	/**
+	 * @var boolean complete I am the flag indicating if I am finished completed.
+	 * @access public
+	 */
 	public $complete;
 
 	// ****************************** PUBLIC ******************************* //

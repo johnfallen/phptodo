@@ -9,10 +9,30 @@ namespace org\jfa\todo\simple;
  */
 class ViewState {
 
-	// object properties
+	// **************************** PROPERTIES ***************************** //
+	/**
+	 * @var any data I am data for views to use.
+	 * @access public
+	 */
 	public $data;
+
+	/**
+	 * @var string view I am the name of the view to render.
+	 * @access public
+	 */
 	public $view;
+
+	/**
+	 * @var string applicationSystemPath I am the full system path to director 
+	 * with witch to render a view.
+	 * @access public
+	 */
 	public $applicationSystemPath;
+
+	/**
+	 * @var object response I am the response associative array.
+	 * @access public
+	 */
 	public $response = array();
 
 	// ****************************** PUBLIC ******************************* //
