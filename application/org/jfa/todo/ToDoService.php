@@ -1,5 +1,5 @@
 <?php
-namespace org\jfa\todo\simple;
+namespace org\jfa\todo;
 /**
  * I am the ToDoService object. I provide access and CRUD functionality for 
  * ToDo objects.

@@ -1,5 +1,5 @@
 <?php
-namespace org\jfa\todo\simple;
+namespace org\jfa\todo;
 /**
  *
  * I am a simple factory for this application.
