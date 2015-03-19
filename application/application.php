@@ -74,7 +74,7 @@ function handleAction(){
 		        $viewState->setView('list.php');
 		    	$viewState->setData( $controller->listToDo() );
 
-		    	$viewState->setResponse('ToDo Deleted', 'success');
+		    	$viewState->setResponse('The Todo Was Deleted', 'success');
 		        
 		        break;
 
@@ -99,7 +99,7 @@ function handleAction(){
 		        $viewState->setView('list.php');
 		    	$viewState->setData( $controller->listToDo() );
 
-		    	$viewState->setResponse('ToDo Saved', 'success');
+		    	$viewState->setResponse('The Todo Was Saved', 'success');
 
 		        break;
 
@@ -110,7 +110,7 @@ function handleAction(){
 		    	$viewState->setView('list.php');
 		    	$viewState->setData( $controller->listToDo() );
 
-		    	$viewState->setResponse('Completed ToDos Cleared', 'info');
+		    	$viewState->setResponse('Completed ToDos Were Cleared', 'info');
 
 		    	break;
 		    
@@ -158,7 +158,7 @@ function checkApplicationState(){
  * @return string
  */
 function dumpApplicationDiagnostics(){
-	echo 'Session Object';
+	echo 'SESSION Object';
 	dump( $_SESSION[ SESSION_NAME_SPACE ] );
 }
 

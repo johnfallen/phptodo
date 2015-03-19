@@ -11,5 +11,3 @@ namespace org\jfa\todo;
 <footer>
 	<p>Today is <?= date( 'l jS \of F Y' ) ?></p>
 </footer>
-
-<?php dumpApplicationDiagnostics(); ?>
