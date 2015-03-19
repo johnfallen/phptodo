@@ -81,11 +81,12 @@ class Controller {
 	 */
 	public function saveToDo($data){
 
-		return $this->ToDoService->saveToDo(
-									$data['id'], 
-									$data['task'], 
-									$data['complete']
-									);
+		$toDo = $this->getToDo($data['id']);
+
+		$toDo->setTask($data['task']);
+		$toDo->setComplete($data['complete']);
+
+		return $this->ToDoService->saveToDo($toDo);
 	}
 
 	// ****************************** PRIVATE ****************************** //

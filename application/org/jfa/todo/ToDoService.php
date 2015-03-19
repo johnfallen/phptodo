@@ -19,11 +19,25 @@ class ToDoService {
 	 */
 	private $collection = array();
 
+	/**
+	 * @var string jsonFileName I am the name of the json file where I persist 
+	 * things. 
+	 * @access private
+	 */
+	private $storageFileFullPath;
+
 	// ****************************** PUBLIC ******************************* //
 	/**
 	 * I am the constructor.
 	 */
-	function __construct(){}
+	function __construct(){
+		// must be set first cause loadData uses the property.
+		// Why dont PHP let me put dirname(__FILE__) in the property 
+		// declaration!!?!? That's iratating
+		$this->storageFileFullPath = dirname(__FILE__) . '/data/storage.json';
+
+		$this->loadData();
+	}
 
 	/**
 	 * I remove a ToDo from the collection.
@@ -46,6 +60,8 @@ class ToDoService {
 
 			$index++;
 		}
+
+		$this->saveCollection();
 	}
 
 	/**
@@ -66,6 +82,8 @@ class ToDoService {
 
 			$index++;
 		}
+
+		$this->saveCollection();
 	}
 
 	/**
@@ -113,12 +131,7 @@ class ToDoService {
 	 * @param boolean $complete  I a flag to indicate if the ToDo is completed. I am required.
 	 * @return object
 	 */
-	public function saveToDo( $id, $task, $complete ) {
-
-		$ToDo = $this->getToDo( $id );
-
-		$ToDo->setTask( $task );
-		$ToDo->setComplete( $complete );
+	public function saveToDo( $ToDo ) {
 
 		// was the ToDo saved in the collection?
 		$wasInCollection = false;
@@ -140,10 +153,78 @@ class ToDoService {
 			array_push($this->collection, $ToDo);	
 		}
 
+		$this->saveCollection();
+
 		// return the saved object
 		return $ToDo;
 	}
 
 	// ****************************** PRIVATE ****************************** //
+	
+	/**
+	 * I am the method that initalizes the memeory collection on object 
+	 * creation.
+	 *
+	 * @return void
+	 */
+	private function loadData(){
+
+		$filename = $this->storageFileFullPath;
+
+		if ( ! file_exists( $filename ) ) {
+		   $this->saveCollection(); 
+		}
+
+		$this->loadCollection();
+		
+	}
+
+	/**
+	 * I load the data from disk into the memory collection.
+	 *
+	 * @return void
+	 */
+	private function loadCollection(){
+
+		// wipe out the current memory collection
+		$this->collection = array();
+
+		$fileData = file_get_contents( $this->storageFileFullPath );
+
+		if ( strlen( $fileData ) ){
+
+			$JSONData = json_decode($fileData, true);
+
+			foreach ($JSONData as $value){
+
+				$obj = $this->getToDo('');
+
+				$obj->setID($value['id']);
+				$obj->setComplete($value['complete']);
+				$obj->setTask($value['task']);
+
+				$this->saveToDo($obj);
+			}
+
+		}
+	}
+
+	/**
+	 * I save the memory collection to disk.
+	 *
+	 * @return void
+	 */
+	private function saveCollection(){
+
+		$filename = $this->storageFileFullPath;
+		
+		// delete the file if it's there
+		if ( file_exists( $filename ) ) {
+			unlink( $filename );
+		}
+
+		// now rewrite it
+		file_put_contents( $filename, json_encode( $this->collection ) );
+	}
 }
 ?>

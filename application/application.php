@@ -138,25 +138,6 @@ function buildLink( $action ){
 }
 
 /**
- * I return a string of the base URI of the application.
- *
- * @return string
- */
-function getBaseURI(){
-	
-	return "http://" . $_SERVER[ 'HTTP_HOST' ] . dirname( $_SERVER[ 'PHP_SELF' ] );
-}
-
-/**
- * I return the applications base system path.
- *
- * @return string
- */
-function getApplicationSystemPath(){
-	return $_SESSION[ SESSION_NAME_SPACE ][ 'systemPath' ];
-}
-
-/**
  * I check the state of the application. If needed I will reload it.
  *
  * @return void
@@ -169,6 +150,53 @@ function checkApplicationState(){
 
 		startApplication();	
 	}
+}
+
+/**
+ * I dump various application information to the screen.
+ *
+ * @return string
+ */
+function dumpApplicationDiagnostics(){
+	echo 'Session Object';
+	dump( $_SESSION[ SESSION_NAME_SPACE ] );
+}
+
+/**
+ * I return the applications base system path.
+ *
+ * @return string
+ */
+function getApplicationSystemPath(){
+	return $_SESSION[ SESSION_NAME_SPACE ][ 'systemPath' ];
+}
+
+/**
+ * I return a string of the base URI of the application.
+ *
+ * @return string
+ */
+function getBaseURI(){
+	
+	return "http://" . $_SERVER[ 'HTTP_HOST' ] . dirname( $_SERVER[ 'PHP_SELF' ] );
+}
+
+/**
+ * I return the applications Controller object.
+ *
+ * @return object
+ */
+function getController(){
+	return getFactory()->getBean( 'Controller' );
+}
+
+/**
+ * I return the applications Factory object.
+ *
+ * @return object
+ */
+function getFactory(){
+	return $_SESSION[ SESSION_NAME_SPACE ][ 'factory' ];
 }
 
 /**
@@ -191,24 +219,6 @@ function setViewState( $ViewState ){
 	if ( ! isset ( $_POST[ SESSION_NAME_SPACE ][ 'viewSate' ] ) ){
 		$_POST[ SESSION_NAME_SPACE ][ 'viewSate' ] = $ViewState;	
 	}
-}
-
-/**
- * I return the applications Controller object.
- *
- * @return object
- */
-function getController(){
-	return getFactory()->getBean( 'Controller' );
-}
-
-/**
- * I return the applications Factory object.
- *
- * @return object
- */
-function getFactory(){
-	return $_SESSION[ SESSION_NAME_SPACE ][ 'factory' ];
 }
 
 /**
