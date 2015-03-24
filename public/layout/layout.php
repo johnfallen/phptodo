@@ -8,6 +8,7 @@ $layoutBaseURI = getBaseURI();
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8" />
 <title><?= APP_TITLE ?></title>
 <link rel="stylesheet" href="<?= $layoutBaseURI ?>/public/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?= $layoutBaseURI ?>/public/css/style.css">
